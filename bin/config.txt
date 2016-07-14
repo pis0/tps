@@ -1,0 +1,1 @@
+STARTER_PATH=C:/Windows/System32/cmd.exe&TEXTUREPACKER_PATH=TexturePackerGUI.exe&PRAIA_PATH=C:/workspace/Praia
