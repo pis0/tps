@@ -9,8 +9,7 @@ set OUTPUT=%AIR_PATH%\%AIR_NAME%.dmg
 
 :: Package
 echo.
-::echo Packaging %AIR_NAME%%AIR_TARGET%.air using certificate %CERT_FILE%...
-echo Packaging %AIR_NAME%%AIR_TARGET%.exe using certificate %CERT_FILE%...
+echo Packaging %AIR_NAME%%AIR_TARGET% using certificate %CERT_FILE%...
 ::call adt -package %OPTIONS% %SIGNING_OPTIONS% %OUTPUT% %APP_XML% %FILE_OR_DIR%
 call adt -package %SIGNING_OPTIONS% %OPTIONS% %OUTPUT% %APP_XML% %FILE_OR_DIR%
 if errorlevel 1 goto failed

@@ -155,7 +155,7 @@ package
 			nativeProcessStartupInfo.arguments = new <String>[];  
 			if (Capabilities.os.toLocaleLowerCase().search("windows") != -1)
 			{
-				nativeProcessStartupInfo.arguments.push('/c', 'start'); 
+				nativeProcessStartupInfo.arguments.push('/c', 'start');   
 			}
 			else 
 			{
