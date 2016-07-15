@@ -34,7 +34,7 @@ package
 			
 			// output
 			output = new TextField();
-			output.wordWrap = output.border = output.background = true;  
+			output.wordWrap = output.border = output.background = true;
 			output.backgroundColor = 0xffffff;
 			
 			addChild(output);
@@ -149,32 +149,52 @@ package
 			var pathEV:String = config["TEXTUREPACKER_PATH"];
 			var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
 			var fileEV:File = new File();
+			
 			fileEV = fileEV.resolvePath(config["STARTER_PATH"]);
 			
 			//nativeProcessStartupInfo.arguments = Vector.<String>(['/c', 'start', config["TEXTUREPACKER_PATH"], tpsFile.nativePath]);
-			nativeProcessStartupInfo.arguments = new <String>[];  
+			nativeProcessStartupInfo.arguments = new <String>[];
 			if (Capabilities.os.toLocaleLowerCase().search("windows") != -1)
 			{
-				nativeProcessStartupInfo.arguments.push('/c', 'start');   
+				nativeProcessStartupInfo.arguments.push('/c', 'start');
 			}
-			else 
+			else
 			{
 				nativeProcessStartupInfo.arguments.push('-a');
 			}
 			
-			nativeProcessStartupInfo.arguments.push(config["TEXTUREPACKER_PATH"], tpsFile.nativePath); 			
+			nativeProcessStartupInfo.arguments.push(config["TEXTUREPACKER_PATH"], tpsFile.nativePath);
 			
-			
-			
-			nativeProcessStartupInfo.executable = fileEV;
-			
-			if (NativeProcess.isSupported)
+			try
 			{
-				var process:NativeProcess = new NativeProcess();
-				process.start(nativeProcessStartupInfo);
+				nativeProcessStartupInfo.executable = fileEV;
+			}
+			catch (e:Error)
+			{
+				output.appendText("\n" + e);
+				return;
 			}
 			
-			close();
+			try
+			{
+				if (NativeProcess.isSupported)
+				{
+					var process:NativeProcess = new NativeProcess();
+					process.start(nativeProcessStartupInfo);
+					
+					close();
+				}
+				else
+				{
+					output.appendText("\nNativeProcess is not supported!");
+					return;
+				}
+			}
+			catch (e:Error)
+			{
+				output.appendText("\n" + e);
+				return;
+			}
 		
 		}
 		
