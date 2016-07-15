@@ -4,8 +4,8 @@ if not exist %CERT_FILE% goto certificate
 :: AIR output
 if not exist %AIR_PATH% md %AIR_PATH%
 ::set OUTPUT=%AIR_PATH%\%AIR_NAME%%AIR_TARGET%.air
-set OUTPUT=%AIR_PATH%\%AIR_NAME%.exe 
-::set OUTPUT=%AIR_PATH%\%AIR_NAME%.dmg
+::set OUTPUT=%AIR_PATH%\%AIR_NAME%.exe 
+set OUTPUT=%AIR_PATH%\%AIR_NAME%.dmg
 
 :: Package
 echo.
