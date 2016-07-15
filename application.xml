@@ -21,5 +21,5 @@
   <android>
     <manifestAdditions><![CDATA[<manifest android:installLocation="auto" xmlns:android="http://schemas.android.com/apk/res/android" />]]></manifestAdditions>
   </android>
-  <supportedProfiles>extendedDesktop desktop</supportedProfiles>
+  <supportedProfiles>desktop extendedDesktop tv extendedTV</supportedProfiles>
 </application>
