@@ -15,6 +15,7 @@ package
 	import flash.net.URLLoaderDataFormat;
 	import flash.net.URLRequest;
 	import flash.net.URLVariables;
+	import flash.system.Capabilities;
 	import flash.text.TextField;
 	
 	[SWF(width = '500', height = '300', backgroundColor = "0xe1e1e1", frameRate = "60")]
@@ -143,14 +144,28 @@ package
 		private function launchTexturePacker():void
 		{
 			
-			output.appendText("\nlaunchTexturePacker... ");
+			output.appendText("\nlaunchTexturePacker... " + Capabilities.os);
 			
 			var pathEV:String = config["TEXTUREPACKER_PATH"];
 			var nativeProcessStartupInfo:NativeProcessStartupInfo = new NativeProcessStartupInfo();
 			var fileEV:File = new File();
 			fileEV = fileEV.resolvePath(config["STARTER_PATH"]);
 			
-			nativeProcessStartupInfo.arguments = Vector.<String>(['/c', 'start', config["TEXTUREPACKER_PATH"], tpsFile.nativePath]);
+			//nativeProcessStartupInfo.arguments = Vector.<String>(['/c', 'start', config["TEXTUREPACKER_PATH"], tpsFile.nativePath]);
+			nativeProcessStartupInfo.arguments = new <String>[];  
+			if (Capabilities.os.toLocaleLowerCase().search("windows") != -1)
+			{
+				nativeProcessStartupInfo.arguments.push('/c', 'start'); 
+			}
+			else 
+			{
+				nativeProcessStartupInfo.arguments.push('-a');
+			}
+			
+			nativeProcessStartupInfo.arguments.push(config["TEXTUREPACKER_PATH"], tpsFile.nativePath); 			
+			
+			
+			
 			nativeProcessStartupInfo.executable = fileEV;
 			
 			if (NativeProcess.isSupported)
