@@ -35,5 +35,8 @@ function fixPath()
 fixPath "//struct[@type='Settings']/filename"[1]
 fixPath "//struct[@type='DataFile']"[1]"/filename"[1]
  
-# RUN
-$TEXTUREPACKER_PATH "$TPS"
+# RUN windows
+$TEXTUREPACKER_PATH "$TPS" 
+
+# RUN mac os
+#open -a $TEXTUREPACKER_PATH "$TPS" 
