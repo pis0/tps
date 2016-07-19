@@ -2,10 +2,20 @@ http://macappstore.org/xmlstarlet/
 
 https://coderwall.com/p/dmuxma/upgrade-bash-on-your-mac-os
 
-# applescript:
+# to edit (tps.sh):
+PRAIA_PATH=
+MAGIC_PATH=
+PIPAVB_PATH=
+TEXTUREPACKER_PATH=
+XML_PATH=
 
-on run args
-    set the_script to "/usr/local/bin/bash /Applications/tps/tps.sh "
-    set the_result to do shell script the_script & args
-    display dialog the_result
-end run
+# windows (cygwin):
+1- open file with tps.bat
+
+# mac (automator):
+1- get file selected on finder 
+2- run shell script as arguments: /path/to/tps.sh "$1" 
+3- save as service for .tps files 
+
+
+
