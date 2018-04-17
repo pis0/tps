@@ -16,6 +16,6 @@ XML_PATH=
 1- get file selected on finder 
 2- run shell script as arguments: /path/to/tps.sh "$1" 
 3- save as service for .tps files 
-
+4- check permissions for tps.sh file (chmod +x PATH_TO/tps.sh)
 
 
