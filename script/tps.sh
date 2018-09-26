@@ -6,9 +6,10 @@ set +v
 export TPS=$1
 export OK=0
 
-export PRAIA_PATH=C:/workspace/Praia
-export MAGIC_PATH=C:/workspace/Magic
-export PIPAVB_PATH=C:/workspace/Pipavb
+export PRAIA_PATH=C:/workspace/praia
+export MAGIC_PATH=C:/workspace/magic
+export BLOON_PATH=C:/workspace/bloon
+export UNDERDOG_PATH=C:/workspace/underdog
 
 export TEXTUREPACKER_PATH=TexturePackerGUI.exe
 
@@ -48,9 +49,11 @@ fixPath "//struct[@type='DataFile']"[1]"/filename"[1] "praia" $PRAIA_PATH
 fixPath "//struct[@type='Settings']/filename"[1] "magic" $MAGIC_PATH
 fixPath "//struct[@type='DataFile']"[1]"/filename"[1] "magic" $MAGIC_PATH
 
-fixPath "//struct[@type='Settings']/filename"[1] "pipavb" $PIPAVB_PATH
-fixPath "//struct[@type='DataFile']"[1]"/filename"[1] "pipavb" $PIPAVB_PATH
+fixPath "//struct[@type='Settings']/filename"[1] "bloon" $BLOON_PATH
+fixPath "//struct[@type='DataFile']"[1]"/filename"[1] "bloon" $BLOON_PATH
 
+fixPath "//struct[@type='Settings']/filename"[1] "underdog" $UNDERDOG_PATH
+fixPath "//struct[@type='DataFile']"[1]"/filename"[1] "underdog" $UNDERDOG_PATH
 
 
 
